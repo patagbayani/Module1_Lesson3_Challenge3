@@ -1,0 +1,15 @@
+pragma solidity ^0.8.0;
+
+contract EventExampleContract {
+    event Event1(uint indexed indexedValue, uint value);
+    event Event2(address indexed indexedAddress, string indexed indexedString, uint value);
+    event Event3(string indexed indexedString);
+    event Event4(bool value);
+
+    function triggerEvents() public {
+        emit Event1(10, 100);
+        emit Event2(msg.sender, "Hello", 42);
+        emit Event3("Event 3");
+        emit Event4(true);
+    }
+}
