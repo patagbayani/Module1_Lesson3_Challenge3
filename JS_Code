@@ -1,0 +1,51 @@
+const Web3 = require('web3');
+const web3 = new Web3('YOUR_WEB3_PROVIDER_URL');
+
+const contractAddress = 'CONTRACT_ADDRESS'; // Replace with the actual contract address
+const abi = [
+    // Replace with the actual ABI of the smart contract
+];
+
+const contractInstance = new web3.eth.Contract(abi, contractAddress);
+
+// Subscribe to Event1
+contractInstance.events.Event1({}, (error, event) => {
+    if (!error) {
+        console.log('Event1:', event.returnValues);
+    } else {
+        console.error('Error:', error);
+    }
+});
+
+// Subscribe to Event2
+contractInstance.events.Event2({}, (error, event) => {
+    if (!error) {
+        console.log('Event2:', event.returnValues);
+    } else {
+        console.error('Error:', error);
+    }
+});
+
+// Subscribe to Event3
+contractInstance.events.Event3({}, (error, event) => {
+    if (!error) {
+        console.log('Event3:', event.returnValues);
+    } else {
+        console.error('Error:', error);
+    }
+});
+
+// Subscribe to Event4
+contractInstance.events.Event4({}, (error, event) => {
+    if (!error) {
+        console.log('Event4:', event.returnValues);
+    } else {
+        console.error('Error:', error);
+    }
+});
+
+// Trigger events
+contractInstance.methods.triggerEvents(123, 'Hello', '0x1234567890123456789012345678901234567890', 456, 'World').send({ from: 'YOUR_SENDER_ADDRESS' });
+
+
+// Replace YOUR_WEB3_PROVIDER_URL, CONTRACT_ADDRESS, YOUR_SENDER_ADDRESS, and // Replace with the actual ABI of the smart contract with appropriate values. It  will listen to the events defined in the smart contract and print the event data when triggered.
